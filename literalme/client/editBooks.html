@@ -1,0 +1,44 @@
+<template name="editBooks">
+ <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Add a New Book to the Pile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="editData">
+                        <div class="coverImg text-center">
+                            <img id="editdisplayImg" src="book_stack.png" alt="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="editbPicLabel">Image Path</span>
+                            <input type="text" class="form-control" id="editImg" placeholder="Path to imge" aria-label="Book Cover" aria-describedby="editbPicLabel">
+                        </div>
+                                            
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="editbTitleLabel">Book Title</span>
+                            <input type="text" class="form-control" id="editTitle" placeholder="Book Title" aria-label="Book title" aria-describedby="editbTitleLabel">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="editbAuthorLabel">Author</span>
+                            <input type="text" class="form-control" id="editAuthor" placeholder="Book Author" aria-label="Book author" aria-describedby="editbAuthorLabel">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="editbDescriptionLabel">Description</span>
+                            <input type="text" class="form-control" id="editDescription" placeholder="Description" aria-label="Book description" aria-describedby="editbDescriptionLabel">
+                        </div>
+                        <input type="hidden" id="editID">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary js-saveEdit" >Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

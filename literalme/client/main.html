@@ -1,0 +1,149 @@
+<head>
+  <title>Bookstore</title>
+</head>
+
+<body>
+  <div class="container">
+    {{> navBar}}
+    {{> mainBody}}
+    {{> addBooks}}
+    {{> viewBooks}}
+    {{> confirmDel}}
+    {{> editBooks}}
+    {{> footerBar}}
+  </div>
+</body>
+
+<template name="navBar">
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Welcome</h4>
+            <p class="text-muted">Bookstore is your go to place for book reviews .</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">         
+          <strong>Welcome</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</template>
+
+<template name="myJumbo">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading c2">Welcome</h1>
+      <p class="lead text-muted c2">Glad you found your way here. It's always a good time to read a book.</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Top Rated Book</a>
+      </p>
+    </div>
+  </section>
+</template>
+
+<template name="mainBody">
+  <main role="main">
+    {{> myJumbo}}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {{#each newBooks}}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="bookCover" src={{bPic}} alt="">
+                            <div class="card-body">
+                                <p class="card-text">{{bTitle}}</p>
+                                <p class="card-text">{{bView}}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary js-view">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary js-edit">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /col -->
+                {{/each}}          
+            </div> <!-- /row for all cards -->
+        </div>
+    </div>
+        
+  </main>
+</template>
+
+<template name="addBooks">
+    <div class="row justify-content-around mb-3">
+        <div class="col-lg-6 text-center">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
+                Add a new book
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Add a New Book to the Pile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="newBook">
+                        <div class="coverImg text-center">
+                            <img id="displayImg" src="book_stack.png" alt="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="bPicLabel">Image Path</span>
+                            <input type="text" class="form-control" id="bookImg" placeholder="Path to imge" aria-label="Book Cover" aria-describedby="bPicLabel">
+                        </div>
+                                               
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="btitleLabel">Book Title</span>
+                            <input type="text" class="form-control" id="bookTitle" placeholder="Book Title" aria-label="Book title" aria-describedby="bTitleLabel">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="bauthorLabel">Author</span>
+                            <input type="text" class="form-control" id="bookAuthor" placeholder="Book Author" aria-label="Book author" aria-describedby="bauthorLabel">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="bdescriptionLabel">Description</span>
+                            <input type="text" class="form-control" id="bookDescription" placeholder="Description" aria-label="Book description" aria-describedby="bdescriptionLabel">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary js-save" >Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="footerBar">
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>&copy; Bookworms</p>      
+    </div>
+  </footer>
+</template>

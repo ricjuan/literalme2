@@ -1,0 +1,25 @@
+body {
+  padding: 10px;
+  font-family:'Times New Roman', Times, serif;
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.bookCover{
+    width: 250px;
+}
+
+.coverImg img{
+    width: 300px;
+    height: 350px;
+}
+
+.coverImg{
+    margin-bottom: 30px;
+}
+p{
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+.c2{
+    color: white;
+}
